@@ -11,22 +11,22 @@ services:
       POSTGRES_DB: crm_db
     ports:
       - "5432:5432"
-    volumes:
+    volumes: 
       - postgres_data:/var/lib/postgresql/data
 
   api:
-    build: .
-    container_name: crm_api
-    restart: always
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: postgresql://postgres:Appelsinstjerna_2026@db:5432/crm_db
-    volumes:
-      - .:/app
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    build: . 
+    container_name: crm_api 
+    restart: always 
+    ports: 
+      - "8000:8000" 
+    depends_on: 
+      - db 
+    environment: 
+      DATABASE_URL: postgresql://postgres:Appelsinstjerna_2026@db:5432/crm_db 
+    volumes: 
+      - .:/app 
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload 
 
 volumes:
   postgres_data:
