@@ -7,3 +7,6 @@ Base.metadata.create_all(bind=engine)
 app= FastAPI()
 app.include_router(router)
 
+@app.get("/")
+def root():
+    return {"message": "CRM API is live"}
