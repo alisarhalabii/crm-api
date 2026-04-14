@@ -30,10 +30,10 @@ def get_customers():
     return customers
    #return {"message": "HELLO ALISAR"} --> Testing respons for direct get function in fastapi
 
-@router.put("/customers/{customer_id}")
+@router.put("/{customer_id}")
 def update_customer(customer_id: int, customer: Customer):
     db= SessionLocal()
-    db_customer= db.query(CustomerDB).filter(CustomerDB.id == customer_id)
+    db_customer= db.query(CustomerDB).filter(CustomerDB.id == customer_id).first()
     if not db_customer:
         db.close()
         return {"error": "Customer not found"}
@@ -48,10 +48,10 @@ def update_customer(customer_id: int, customer: Customer):
 
     return db_customer
 
-@router.delete("/customers/{customer_id}")
+@router.delete("/{customer_id}")
 def delete_customer(customer_id: int):
     db = SessionLocal()
-    db_customer = db.query(CustomerDB).filter(CustomerDB.id == customer_id)
+    db_customer = db.query(CustomerDB).filter(CustomerDB.id == customer_id).first()
     
     if not db_customer:
         db.close()
