@@ -16,7 +16,7 @@ def hash_password(password: str):
 
 #Method to verify given password
 def verify_password(plain_password, hashed):
-    return pwd_context.verify(plain_password, hash)
+    return pwd_context.verify(plain_password, hashed)
 
 
 #Method to create JWT token

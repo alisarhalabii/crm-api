@@ -36,5 +36,5 @@ def login(user: User):
     
     token= create_access_token({"sub": db_user.username})
     db.close()
-    return {"acess_token": token, "token_type": "bearer"}
+    return {"access_token": token, "token_type": "bearer"}
 
