@@ -1,14 +1,3 @@
-"""
-first version of models.py (for me)
-from pydantic import BaseModel
-
-class Customer(BaseModel):
-    id: int
-    name: str
-    email: str
-    status: str #leads, in contact, customer
-"""
-
 from sqlalchemy import Column, Integer, String
 from .database import Base
 
