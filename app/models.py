@@ -9,3 +9,10 @@ class CustomerDB(Base):
     email= Column(String)
     status= Column(String)
 
+
+class UserDB(Base):
+    __tablename__ = "users"
+    id= Column(Integer, primary_key=True, index=True)
+    username= Column(String)
+    password= Column(String)
+

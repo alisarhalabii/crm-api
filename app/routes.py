@@ -27,6 +27,7 @@ def get_customers():
     db= SessionLocal()
     customers = db.query(CustomerDB).all()
     db.close()
+    
     return customers
    #return {"message": "HELLO ALISAR"} --> Testing respons for direct get function in fastapi
 
@@ -56,9 +57,9 @@ def delete_customer(customer_id: int):
     if not db_customer:
         db.close()
         return {"error": "Customer not found in database"}
-    
-    db.delete(db_customer)
-    db.commit()
-    db.close()
+     
+    db.delete(db_customer) 
+    db.commit() 
+    db.close() 
 
-    return{"Message": "Customer deleted from database"}
+    return{"Message": "Customer deleted from database"} 
